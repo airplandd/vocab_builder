@@ -5,11 +5,15 @@ try:
     cursor = connection.cursor()  
     print('DB initialised')
 
-    query = 'SELECT sqlite_version()'
+    # query = 'SELECT sqlite_version()'
+    # cursor.execute(query)
+
+    query = 'SELECT word, lang FROM WORDS;'
     cursor.execute(query)
 
     result = cursor.fetchall()
-    print("SQLite Version is {}".format(result[0][0]))
+    # print("SQLite Version is {}".format(result[0][0]))
+    print(result[0])
 
     cursor.close()
 except sqlite3.Error as error:
