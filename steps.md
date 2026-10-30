@@ -1,4 +1,4 @@
-1. Open the database
+1. ~~Open the database~~ <span style="color:green"> Done </span>
 2. Read a row
 3. Get the [word, language]
 4. If word is not in existing_words database, in the corresponding language table:
