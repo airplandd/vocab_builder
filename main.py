@@ -1,6 +1,7 @@
 import sqlite3
 import re
-
+import requests
+import json
 try:
     connection_vocab = sqlite3.connect('./db/vocab.db')
     cursor_vocab = connection_vocab.cursor()  
@@ -27,13 +28,23 @@ try:
                 insert = True
             else:
                 continue
-        # Insert the word into the existing_words db
+
         if not insert:
             continue
 
+        # Insert the word into the existing_words db
+        try:
+            response = requests.get(f"https://api.dictionaryapi.dev/api/v2/entries/en/{word[0]}").json()
+            for i in response[0]['meanings']:
+                for definition in i['definitions']:
+                    print(definition)
+                print("\n")
+        except Exception as e:
+            continue
 
-        query = f"INSERT INTO WORDS (word, lang) VALUES({word[0]}, {word[1]});"
-        cursor_existing.execute(query)
+
+        # query = f"INSERT INTO WORDS (word, lang) VALUES({word[0]}, {word[1]});"
+        # cursor_existing.execute(query)
 
         
     cursor_vocab.close()

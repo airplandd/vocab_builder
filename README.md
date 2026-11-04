@@ -6,7 +6,7 @@
 2. ~~Read a row~~  <span style="color:green"> Done </span>
 3. ~~Get the [word, language]~~ <span style="color:green"> Done </span>
 4. If word is not in existing_words database, in the corresponding language table:
-    fetch the word from dictionary api
+    ~~fetch the word from dictionary api~~s
     create a flashcard for each part of speech
     write it in a txt file, corresponding to the language
     ~~add the word in existing_words database~~
